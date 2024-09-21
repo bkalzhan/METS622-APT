@@ -1,0 +1,69 @@
+# Kickstarter JSON Search Project
+
+## Description
+This project processes Kickstarter datasets in JSON format and allows users to search for specific keywords across multiple files. The search results are saved to new JSON files, and the details of specific attributes (`name`, `goal`, and `category`) from the matched results are printed to the console. The project also tracks and logs search queries with timestamps and provides a frequency count for each keyword searched.
+
+## Features
+- **Merge JSON Files**: Combine multiple JSON files into one.
+- **Keyword Search**: Search for a keyword in the merged JSON file and save results to a new file.
+- **Print Specific Fields**: Extract and display `name`, `goal`, and `category name` fields from the JSON search results.
+- **Search Memory**: Keep track of search terms and their frequencies.
+- **Frequency Counter**: Print the number of times each search term has been used.
+
+## Requirements
+- JSON library (`org.json` for parsing JSON)
+
+## Setup
+
+### Installing JSON Library
+Since this is a simple Java project (not Maven/Gradle-based), you'll need to manually add the `org.json` library to your project:
+
+1. Download the latest JSON jar from [here](https://repo1.maven.org/maven2/org/json/json/20210307/json-20210307.jar).
+2. Add the `.jar` file to your project:
+   - In Eclipse, right-click on the project folder → `Build Path` → `Add External JARs...`.
+   - Select the downloaded `json-20210307.jar` file.
+
+### Project Files
+
+1. **Main.java**: The entry point of the application. Contains methods to merge files, search for keywords, and display results.
+2. **FileMerger.java**: Merges given files into one json file.
+3. **KickstarterSearch.java**: Contains methods for performing the search and handling results.
+4. **SearchMemory.java**: Keeps track of all searches and their respective timestamps, providing frequency statistics.
+
+## How to Run
+
+1. **Download Kickstarter JSON Files**
+   - Download JSON datasets from [Kickstarter datasets](https://webrobots.io/kickstarter-datasets). These files contain Kickstarter project data that will be used as input.
+   - Place them in the `src` directory of the project.
+
+2. **Merge Files**
+   - Use the method `mergeFiles()` to merge multiple JSON files into one large file.
+   - This method reads the content of each file and writes it into a single output JSON file.
+   - Example:
+     ```java
+     String[] filePaths = {
+         "path/to/Kickstarter1.json",
+         "path/to/Kickstarter2.json",
+         "path/to/Kickstarter3.json"
+     };
+     KickstarterFileMerger.mergeFiles(filePaths, "path/to/mergedOutput.json");
+     ```
+
+3. **Search for a Keyword**
+   - Use the method `searchProjects()` to search for a specific keyword in the merged JSON file.
+   - This will create a new file with the search results, and it will print the `name`, `goal`, and `category` fields in the console.
+   - Example:
+     ```java
+     KickstarterSearch.searchProjects("fitness", "path/to/mergedOutput.json", "path/to/outputFile.json");
+     ```
+
+4. **View Search History**
+   - Use the method `SearchMemory.printSearchHistory()` to view all previously searched keywords with their timestamps.
+
+5. **View Search Frequency**
+   - Call the method `SearchMemory.printSearchFrequency()` to see how often each keyword has been searched.
+   - Example output:
+     ```
+     "fitness" searched 3 times
+     "robot" searched 2 times
+     ```
