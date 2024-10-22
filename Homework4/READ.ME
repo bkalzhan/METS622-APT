@@ -1,0 +1,29 @@
+# Duplicate Media Files Finder
+
+## Project Overview
+
+This Java project includes a `ShellScriptExecutor` class that runs a shell script to find duplicate media files (images and videos) in a directory and its subdirectories. The script does not rely solely on file names but compares the metadata of the files to identify duplicates. 
+
+## Features
+
+- Searches for media files (images and videos) modified today.
+- Compares files based on metadata (dimensions, color profile for images, and duration, resolution for videos).
+- Displays files that have identical metadata.
+- Supports common image formats (.jpg, .png, .gif) and video formats (.mp4, .avi, .mov, .mkv).
+
+## Requirements
+
+- Java 11+
+- Bash shell (Linux/Mac)
+- Commands used in shell script:
+  - `sips` for image metadata (Mac)
+  - `mdls` for video metadata (Mac)
+
+## How to Run
+
+1. Ensure that you have all required commands installed on your system (e.g., `sips`, `mdls`).
+2. Modify the directory paths in the shell script if needed.
+3. Use the following command to run the Java code from your terminal:
+   ```bash
+   javac ShellScriptExecutor.java
+   java edu.bu.metcs622.ShellScriptExecutor
