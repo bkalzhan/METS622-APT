@@ -1,0 +1,50 @@
+# Particle Visualization with Pygame
+
+This project is a particle visualization system built using Pygame and NumPy. It simulates and animates particles in a 3D space, projecting them into 2D with customizable features such as particle speed, size, and color spectrum. The system creates a dynamic, colorful particle effect and exports the result as a GIF.
+
+## Features
+
+- **Customizable Parameters**: Adjust particle count, speed, size, zoom factor, and color spectrum (rainbow, white, etc.).
+- **Real-time Particle Simulation**: Visualizes 3D particle motion with rotation and perspective effects.
+- **GIF Export**: Captures the animation and exports it as a GIF for sharing.
+
+## Requirements
+
+- Python 3.x
+- Pygame
+- NumPy
+- Pillow (PIL)
+
+Install dependencies:
+
+```bash
+pip install pygame numpy pillow
+```
+
+## Usage
+
+To run the particle visualization and generate a GIF:
+
+```bash
+python main.py
+```
+
+You can customize the particle system by adjusting the parameters in the script:
+
+```python
+particle_system = ParticleSystem(
+    width=800,
+    height=800,
+    num_particles=300,
+    color_spectrum="rainbow",  # Options: "rainbow", "white", or default
+    particle_speed=2.0,
+    particle_size=2.0,
+    zoom_factor=1.5
+)
+```
+
+The final animation will be saved as `particle_visualization.gif`.
+
+## Example Output
+
+The system produces a colorful particle animation like this (your actual output will depend on the parameters you set).
